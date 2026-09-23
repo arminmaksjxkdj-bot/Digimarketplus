@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دیجی مارکت | بازار خرید و فروش وسایل ماینکرفت</title>
+<meta name="description" content="دیجی مارکت، جایی برای فروشنده‌های ماینکرفتی تا آیتم، اکانت، رنک و دنیای خودشون رو برای فروش بذارن.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><rect width=%2216%22 height=%2216%22 fill=%22%236aa33e%22/><rect x=%222%22 y=%222%22 width=%223%22 height=%223%22 fill=%22%234c7a2c%22/><rect x=%2211%22 y=%2211%22 width=%223%22 height=%223%22 fill=%22%238bc34a%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#" class="logo">
+      <img src="logo.png" alt="لوگوی دیجی مارکت" class="logo-img">
+      <span class="logo-text">دیجی مارکت</span>
+    </a>
+
+    <nav class="main-nav" aria-label="ناوبری اصلی">
+      <a href="#listings">آگهی‌ها</a>
+      <a href="#categories">دسته‌بندی‌ها</a>
+      <a href="#how">راهنما</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn-discord" href="#" id="discordLink" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.3 5.3c-1.4-.7-3-1.1-4.6-1.4-.2.4-.4.8-.6 1.3-1.7-.3-3.4-.3-5.1 0-.2-.4-.4-.9-.6-1.3-1.6.3-3.1.7-4.6 1.4C1.6 9.3.9 13.2 1.2 17c1.8 1.3 3.5 2.1 5.2 2.6.4-.6.8-1.2 1.1-1.9-.6-.2-1.2-.5-1.7-.9.1-.1.3-.2.4-.3 3.3 1.5 6.9 1.5 10.2 0 .1.1.3.2.4.3-.5.3-1.1.6-1.7.9.3.7.7 1.3 1.1 1.9 1.7-.5 3.4-1.3 5.2-2.6.4-4.4-.8-8.3-2.9-11.7ZM8.7 14.6c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm6.6 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg>
+        دیسکورد
+      </a>
+      <button class="btn btn-primary" id="openAddListing">+ ثبت آگهی</button>
+    </div>
+
+    <button class="burger" id="burgerBtn" aria-label="باز کردن منو">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">بازار محلی فروشنده‌های ماینکرفت</p>
+        <h1>وسایل ماینکرفتی‌ت رو بفروش،<br>یا همینجا پیداش کن.</h1>
+        <p class="hero-sub">اکانت، رنک، دایموند، دنیای آماده یا هر چی که برای فروش داری رو با یه آگهی ساده ثبت کن. خریدارها مستقیم از توی دیسکورد باهات هماهنگ می‌کنن.</p>
+
+        <form class="hero-search" id="searchForm" role="search">
+          <input type="text" id="searchInput" placeholder="دنبال چی می‌گردی؟ مثلاً «رنک VIP» یا «دنیای survival»">
+          <button type="submit">جستجو</button>
+        </form>
+
+        <div class="hero-stats">
+          <div><strong id="statCount">0</strong><span>آگهی فعال</span></div>
+          <div><strong id="statCat">۶</strong><span>دسته‌بندی</span></div>
+          <div><strong>۲۴/۷</strong><span>ارتباط توی دیسکورد</span></div>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="crate">
+          <div class="slot"></div><div class="slot filled c1"></div><div class="slot"></div>
+          <div class="slot filled c2"></div><div class="slot filled c3"></div><div class="slot"></div>
+          <div class="slot"></div><div class="slot filled c4"></div><div class="slot"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="categories" id="categories">
+    <div class="wrap">
+      <h2>دسته‌بندی‌ها</h2>
+      <div class="cat-row" id="catRow">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </section>
+
+  <section class="listings" id="listings">
+    <div class="wrap">
+      <div class="listings-head">
+        <h2>آگهی‌های اخیر</h2>
+        <div class="active-filter" id="activeFilter" hidden>
+          <span id="activeFilterText"></span>
+          <button id="clearFilter">پاک کردن فیلتر ×</button>
+        </div>
+      </div>
+
+      <div class="grid" id="grid"></div>
+      <p class="empty-state" id="emptyState" hidden>هیچ آگهی‌ای با این مشخصات پیدا نشد. یه فیلتر دیگه رو امتحان کن یا خودت اولین نفر باش که آگهی می‌ذاره.</p>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="wrap how-inner">
+      <h2>چطور کار می‌کنه</h2>
+      <ol class="steps">
+        <li>
+          <span class="step-num">۱</span>
+          <h3>آگهیت رو بساز</h3>
+          <p>اسم آیتم، قیمت، دسته‌بندی و آیدی دیسکوردت رو وارد کن.</p>
+        </li>
+        <li>
+          <span class="step-num">۲</span>
+          <h3>آگهی منتشر می‌شه</h3>
+          <p>آگهی فوراً توی صفحه اصلی برای همه قابل مشاهده می‌شه.</p>
+        </li>
+        <li>
+          <span class="step-num">۳</span>
+          <h3>خریدار پیام می‌ده</h3>
+          <p>خریدارها از طریق دیسکورد مستقیم باهات هماهنگ می‌کنن و معامله رو می‌بندین.</p>
+        </li>
+      </ol>
+      <div class="how-note">
+        <strong>نکته امنیتی:</strong> دیجی مارکت فقط محل اعلام آگهیه و در معامله دخالتی نداره. قبل از پرداخت، از فروشنده و آیتم مطمئن شو.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <img src="logo.png" alt="لوگوی دیجی مارکت" class="logo-img small">
+      <span>دیجی مارکت</span>
+    </div>
+    <p>ساخته‌شده برای جامعه فروشنده‌های ماینکرفت.</p>
+    <a href="#" id="discordLinkFooter" target="_blank" rel="noopener" class="footer-discord">پیوستن به سرور دیسکورد ↗</a>
+  </div>
+</footer>
+
+<!-- Add listing modal -->
+<div class="modal-backdrop" id="modalBackdrop" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <h3 id="modalTitle">ثبت آگهی جدید</h3>
+      <button id="closeModal" aria-label="بستن">×</button>
+    </div>
+    <form id="listingForm">
+      <label>
+        عنوان آگهی
+        <input type="text" name="title" required placeholder="مثلاً: رنک VIP سرور SkyWars">
+      </label>
+
+      <div class="row-2">
+        <label>
+          دسته‌بندی
+          <select name="category" id="categorySelect" required></select>
+        </label>
+        <label>
+          قیمت (تومان)
+          <input type="number" name="price" min="0" required placeholder="۵۰۰۰۰">
+        </label>
+      </div>
+
+      <label>
+        توضیحات
+        <textarea name="description" rows="3" required placeholder="جزئیات آیتم، سرور مربوطه، شرایط تحویل و..."></textarea>
+      </label>
+
+      <label>
+        آیدی دیسکورد فروشنده
+        <input type="text" name="discord" required placeholder="مثلاً: username یا username#1234">
+      </label>
+
+      <button type="submit" class="btn btn-primary full">انتشار آگهی</button>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
